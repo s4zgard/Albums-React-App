@@ -1,5 +1,22 @@
 {
-  "users": [],
+  "users": [
+    {
+      "id": "MaC9",
+      "name": "Aafi"
+    },
+    {
+      "id": "dd07",
+      "name": "Merle Windler MD"
+    },
+    {
+      "id": "a95d",
+      "name": "Alan Schuster"
+    },
+    {
+      "id": "64a0",
+      "name": "Irvin Nikolaus"
+    }
+  ],
   "albums": [],
   "photos": []
 }
