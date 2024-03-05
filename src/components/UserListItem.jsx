@@ -2,24 +2,28 @@ import { GoTrashcan } from "react-icons/go";
 import { deleteUser } from "../store";
 import useThunk from "../hooks/use-thunk";
 import Button from "./Button";
+import ExpandableList from "./ExpandableList";
+import AlbumsList from "./AlbumsList";
 
 const UserListItem = ({ user }) => {
-  const [remove, isRemoving] = useThunk(deleteUser);
+  const [remove, isRemoving, removeError] = useThunk(deleteUser);
 
   const handleDelete = () => {
     remove(user.id);
   };
+
+  const header = (
+    <>
+      <Button loading={isRemoving} onClick={handleDelete}>
+        {removeError || <GoTrashcan className="text-red-500" />}
+      </Button>
+      {user.name}
+    </>
+  );
   return (
-    <div key={user.id} className="mb-2 border rounded ">
-      <div className="flex p-2 justify-between items-center cursor-pointer">
-        <div className="flex flex-rows items-center justify-between gap-x-2">
-          <Button loading={isRemoving} onClick={handleDelete}>
-            <GoTrashcan className="text-red-500" />
-          </Button>
-          {user.name}
-        </div>
-      </div>
-    </div>
+    <ExpandableList header={header}>
+      <AlbumsList user={user} />
+    </ExpandableList>
   );
 };
 

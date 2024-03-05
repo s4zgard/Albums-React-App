@@ -9,7 +9,7 @@ import Button from "./Button";
 
 const UsersList = () => {
   const [getUsers, isLoadingUsers, usersError] = useThunk(fetchUsers);
-  const [saveUser, creatingUser] = useThunk(createUser);
+  const [saveUser, creatingUser, createError] = useThunk(createUser);
   const { data } = useSelector((state) => state.users);
 
   useEffect(() => {
@@ -25,6 +25,7 @@ const UsersList = () => {
   if (isLoadingUsers) {
     content = <Skeleton times={6} className="h-10 w-full" />;
   } else if (usersError) {
+    console.log("error");
     content = "Error fetching data";
   } else {
     content = data.map((user) => <UserListItem key={user.id} user={user} />);
@@ -36,7 +37,7 @@ const UsersList = () => {
         <h1 className="m-2 text-xl">Users</h1>
 
         <Button loading={creatingUser} onClick={addUser}>
-          + Add User
+          {createError ? "Error whil contacting server  " : "+ Add User"}
         </Button>
       </div>
 
