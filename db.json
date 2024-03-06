@@ -11,10 +11,16 @@
   ],
   "albums": [
     {
-      "id": "c099",
+      "id": "a31e",
       "userId": "MaC9",
-      "title": "Sleek Plastic Mouse"
+      "title": "Generic Wooden Soap"
     }
   ],
-  "photos": []
+  "photos": [
+    {
+      "id": "8b8c",
+      "albumId": "a31e",
+      "url": "https://picsum.photos/seed/1CWg3/640/480"
+    }
+  ]
 }
